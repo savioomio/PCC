@@ -1,0 +1,593 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+body{
+  height: 100vh;
+  background-image: linear-gradient(to right, rgb(18, 18, 18), rgb(20, 20, 20), rgb(40, 40, 40));
+}
+
+.main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+ 
+}
+.paraAlogo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-right: 30px;
+  padding-left: 30px;
+  height: 8%;
+  color: #977653;
+  background-image: linear-gradient(to right, rgb(18, 18, 18), rgb(20, 20, 20), rgb(40, 40, 40));
+  
+}
+.logo{
+  display: flex;
+  width: 120px;
+  justify-content: space-around;
+  background-color: transparent;
+  align-items: center;
+  padding-right: 8px;
+  margin-right: 15px;
+}
+.cadastrar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #977653;
+  border-radius: 10px;
+  height: 50%;
+  width: 100px;
+  font-weight: bold;
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
+
+}
+.link {
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+p{
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+  font-size: 18pt;
+  word-spacing: 5px;
+}
+#outraFont{
+  font-family: 'Lobster', cursive;
+  font-weight: lighter;
+}
+span{
+  color: rgba(255, 255, 255, 0.731);
+  font-size: 10pt;
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
+}
+.corpo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 92%;
+  background-image: linear-gradient(to right, rgb(18, 18, 18), rgb(20, 20, 20), rgb(40, 40, 40));
+}
+.left-img{
+  position: relative;
+  width: 60%;
+  height: 92%;
+
+}
+
+.img-exer{
+  position: absolute;
+  top: -40px;
+  
+}
+#figura{
+  position: absolute;
+  height: 670px;
+}
+
+.right-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 92%;
+}
+
+.global{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 1;
+
+}
+.part1{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+margin-bottom: 25px;
+
+
+}
+h1{
+  color: rgb(245, 243, 243);
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
+  font-size: 32pt;
+  letter-spacing: 2px;
+}
+.part2{
+  display: flex;
+  width: 100%;
+  margin-top: 20px;    
+}
+.part3{
+  display: flex;
+  width: 100%;
+  margin-top: 50px;    
+}
+.p1{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5px;
+  flex-grow: 1;
+  background-color: transparent;
+}
+#alinhar{
+  display: flex;
+  justify-content: center;
+}
+.p2{
+  display: flex;
+  flex-grow: 1;
+  padding-left: 5px;
+  background-color: transparent;
+}
+.bot{
+  display: flex;
+  width: 70%;
+  height: 60px;
+  padding: 15px;
+  border-radius: 15px;
+  border: solid 1px rgb(105, 105, 105);
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+}
+.d1{
+  display: flex;
+  padding: 8px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 0.1;
+  
+}
+.figuras{
+  width: 25px;
+  height: 25px;
+}
+.d2{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
+  background-color: transparent;
+}
+#margin{
+  padding-left: 21px;
+}
+.dados{
+  background-color: transparent;
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 12pt;
+  height: 50px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+}
+#esqsenha{
+  width: 42%;
+  height: auto;
+  color: aliceblue;
+  background-color: transparent;
+  opacity: 0.5;
+
+}
+#redut{
+  margin-top: 17px;
+  
+}
+#redut2{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 8px;
+}
+#submit{
+  background-color:#404040c7;
+  border-radius: 15px;
+  box-shadow: none;
+  border: none;
+}
+#bt{
+  width: 100%;
+  background-color: transparent;
+  color: white;
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 14pt;
+  border: none;
+  
+}
+@media screen and (max-width: 1467px) {
+  #figura{
+      width: 1300px;
+  }
+}
+@media screen and (max-width: 1317px) {
+  #figura{
+      width: 1200px;
+  }
+}
+@media screen and (max-width: 1219px) {
+  #figura{
+      width: 1100px;
+  }
+}
+@media screen and (max-width: 1119px) {
+  #figura{
+      width: 1000px;
+  }
+  .bot{
+      width: 85%;
+  }
+}
+@media screen and (max-width: 1019px) {
+  #figura{
+      width: 900px;
+  }
+  .bot{
+      width: 85%;
+  }
+}
+
+
+@media screen and (max-width: 950px) {
+
+  .global{
+      width: 100%;
+  }
+  .bot {
+      width: 90%;
+  }
+  .part2{
+      margin-top: 30px;
+  }
+  
+}
+@media screen and (max-width: 919px) {
+  #figura{
+      width: 800px;
+      height: 650px;
+  }
+  .img-exer{
+      position: absolute;
+      top: 10px;
+      
+  }
+  .bot{
+      width: 92%;
+  }
+}
+@media screen and (max-width: 818px) {
+  #figura{
+      width: 770px;
+      height: 580px;
+  }
+  .img-exer{
+      position: absolute;
+      top: 78px;
+      
+  }
+  .bot{
+      width: 92%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #figura{
+      width: 0px;
+      height: 0px;
+  }
+  .left-img{
+      height: 0;
+      width: 0;
+  }
+  .right-form{
+      align-items: flex-start;
+      height: 105%;
+      padding: 15px;
+      width: 100%;
+      border-top: none;
+      border-radius: 100px 0 0 0;
+      background-image: linear-gradient(180deg, rgb(30, 30, 30), rgba(37, 37, 37, 0.847), rgb(18, 18, 18), rgb(12, 12, 12));
+      }
+
+  .main {
+      background-image: linear-gradient(90deg, #010506, rgb(30, 30, 30));
+  }
+
+  .corpo {
+      justify-content: center;
+      flex-direction: column;
+      height: 70%;
+      border-radius: 18px 18px 0 0;
+      background-image: none;
+
+  }
+
+  .paraAlogo {
+      height: 29%;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 10px;
+      border: none;
+      padding-left: 12px;
+      background-image: url("../pages/imgs/pexels-binyamin-mellish-116077.jpg");
+      border-radius: 0 0 100px 0px;
+      background-size: 790px;
+      background-position-y: -50px;
+      background-position-x: center;
+      background-repeat: no-repeat;
+  }
+
+  .logo {
+      margin-right: 0px;
+      padding-right: 0;
+      width: 100px;
+  }
+
+  p {
+      font-size: 14pt;
+  }
+
+  .cadastrar {
+      height: 30px;
+  }
+
+  .praImg {
+      height: 0vh;
+      width: 0%;
+      padding-left: 0;
+  }
+
+  .imag {
+      background-image: none;
+      box-shadow: none;
+      background-size: 790px;
+      height: 100%;
+      width: 100%;
+      border-radius: 0px;
+  }
+
+
+  .bot {
+      width: 60%;
+  }
+
+  #esqsenha {
+      width: 65%;
+  }
+  .part1{
+      margin-top: 50px;
+  }
+ 
+}
+
+@media screen and (max-width: 600px) {
+  .paraAlogo {
+      background-size: 590px;
+      background-position: top;
+  }
+
+  #esqsenha {
+      width: 80%;
+  }
+
+  .bot {
+      width: 80%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .bot {
+      width: 90%;
+      height: 70px;
+  }
+
+  .paraAlogo {
+      background-size: 440px;
+  }
+
+  #esqsenha {
+      width: 85%;
+  }
+  h1{
+      font-size: 25pt;
+  }
+  #part1{
+      width: 100%;
+  }
+}
+
+@media screen and (max-width: 390px) {
+
+  .paraAlogo {
+      background-size: 365px;
+  }
+ 
+}
+
+@media screen and (min-width: 1600px) {
+  .imag {
+      background-size: 650px;
+      width: 70%;
+
+
+  }
+}
+@media screen and (max-height: 680px) {
+  .part2 {
+      margin-top: 25px;
+  }
+  #figura{
+      height: 650px;
+  }
+}
+@media screen and (max-height: 600px) {
+  #figura{
+      height: 570px;
+  }
+}
+@media screen and (min-height: 741px) {
+  #figura{
+      height: 700px;
+  }
+}
+
+@media screen and (min-height: 800px) {
+
+  .imag {
+      height: 50vh;
+      background-size: 800px;
+  }
+}
+
+@media screen and (min-height: 890px) {
+  .right-form{
+      display: flex;
+      align-items: center;
+  }
+  .part1{
+      margin-top: 0;
+  }
+  .bot{
+      width: 90%;
+      height: 90px;
+  }
+  #bt{
+      font-size: 18pt;
+  }
+  .dados{
+      font-size: 18pt;
+  }
+  h1{
+      font-size: 35pt;
+  }
+}
+@media screen and (min-height: 1333px) {
+  #figura{
+      height: 750px;
+      width: 800px;
+  }
+  .img-exer{
+      position: absolute;
+      top: 425px;
+      
+  }
+}
+
+
+
+
+.box {
+  display: flex;
+  width: 930px;
+  justify-content: center;
+}
+
+.form-box {
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(40px);
+  padding: 30px 40px;
+  width: 80%;
+  border-radius: 9% 8% 9% 8% / 51% 51% 48% 49%;
+}
+
+.form-box h2 {
+  font-size: 40px;
+  font-weight: bold;
+  font-family:'Sofia Sans Semi Condensed', sans-serif ;
+}
+
+.form-box p {
+  font-size: 25px;
+  font-weight: bold;
+  font-family:'Sofia Sans Semi Condensed', sans-serif ;
+  color: #3D3D3D;
+}
+
+.form-box span {
+  font-size: 25px;
+  font-weight: 500;
+  font-family: sans-serif ;
+  color: #825818;
+}
+
+.form-box p a {
+  color: #977653;
+  text-decoration: none;
+}
+
+.form-box form {
+  margin: 20px 0;
+}
+
+.sair {
+  width: 100%;
+  height: 47px;
+  background: #977653;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  margin-top: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: .5s;
+}
+
+.sair:hover{
+  background: #a15b00;
+  transition: .5s; 
+}
+
+.sair:active{
+  scale: 0.9;
+  transition: .5s;
+}
+
+@media (max-width:930px) {
+
+
+  .box {
+    width: 700px;
+  }
+
+  .form-box {
+    width: 100%;
+    border-radius: 20px;
+  }
+}
