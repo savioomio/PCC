@@ -16,9 +16,9 @@ if (!$email) {
     exit();
 }
 
-//Verifica se a senha inserida atende a determinados critérios de segurança, tais como possuir no mínimo 8 caracteres, ao menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial. Caso contrário, exibe uma mensagem de erro em JavaScript e volta para a página anterior.
-if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/', $senha)) {
-    echo '<script>alert("A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial e ter no mínimo 8 caracteres."); window.history.back();</script>';
+//Verifica se a senha inserida atende a determinados critérios de segurança, tais como possuir no mínimo 8 caracteres. Caso contrário, exibe uma mensagem de erro em JavaScript e volta para a página anterior.
+if (strlen($senha) < 8) {
+    echo '<script>alert("A senha deve ter pelo menos 8 caracteres."); window.history.back();</script>';
     exit();
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-include "../sistema_listagem_treinos/conecxao.php";
+include "conecxao.php";
 
 $id = $_POST['id'];
 $nome_treino = $_POST['nome_treino'];
@@ -12,7 +12,7 @@ $buscar_cadastros = "UPDATE tabela_de_treinos SET nome_treino = '$nome_treino', 
 $query_cadastros = mysqli_query($conx, $buscar_cadastros) or die(mysqli_error($conx));
 
 
-header('location: ../../pages/listagem.page.php');
+header('location: ../../');
 
 ?>
 
