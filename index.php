@@ -36,7 +36,7 @@ $query_cadastros = mysqli_query($conx, $buscar_cadastros) or die(mysqli_error($c
                         <a class="nav-link" href="pages/painel.menu.php">Painel Principal<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Perfil de <?php echo $_SESSION['name']; ?></a>
+                        <a class="nav-link" href="pages/perfil.page.php">Perfil de <?php echo $_SESSION['name']; ?></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Treinos da semana</a>
