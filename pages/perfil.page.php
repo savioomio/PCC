@@ -2,9 +2,13 @@
 
 session_start();
 
+require_once('../methods/sistema_cadastro_login/verification.php');
+
+verification('pages/login.page.php');
+
 include "../methods/sistema_perfil_usuario/cone.php";
 
-$buscar_cadastros = "SELECT * FROM users";
+$buscar_cadastros = "SELECT * FROM users WHERE `id` = {$_SESSION['id']}";
 $query_cadastros = mysqli_query($cone, $buscar_cadastros) or die(mysqli_error($cone));
 
 
