@@ -15,6 +15,8 @@ if (!empty($user)){ // verifica se há resultados da query SQL
     $_SESSION['id'] = $user['id']; // armazena o ID do usuário na sessão
     $_SESSION['name'] = $user['name']; // armazena o nome do usuário na sessão
     $_SESSION['email'] = $user['email']; // armazena o email do usuário na sessão
+    $_SESSION['password'] = $user['password']; // armazena o email do usuário na sessão
+    $_SESSION['surname'] = $user['surname']; // armazena o email do usuário na sessão
     
     header('location: ../../'); // redireciona o usuário para a página inicial
 }

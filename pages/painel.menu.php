@@ -33,7 +33,6 @@
                             <h2>Painel de acesso</h2>
                             <br>
                             <p> Bem vindo, <span><?php session_start(); echo $_SESSION['name']; ?></span> </p>
-                            <span></span>
                             <div class="input-group">
                                 <a href="../methods/sistema_cadastro_login/logout.php"><button class="sair">Sair</button></a>
                                 <a href="../"><button class="sair">Ver listar de treinos</button></a>

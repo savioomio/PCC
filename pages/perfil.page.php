@@ -37,10 +37,9 @@ $query_cadastros = mysqli_query($cone, $buscar_cadastros) or die(mysqli_error($c
             width: 60%;
             height: 70vh;
             border-radius: 44px;
-            background: lightgrey;
-            background: linear-gradient(145deg, #ff6b6b, #d43636);
-            box-shadow: 2px 3px 3px #ba2f2f,
-                2px 3px 3px #ff4949;
+            background-color: #0004;
+            box-shadow: 2px 3px 20px 1px #0004,
+                2px 3px 20px 1px #0004;
         }
 
         .avatar {
@@ -48,7 +47,36 @@ $query_cadastros = mysqli_query($cone, $buscar_cadastros) or die(mysqli_error($c
             height: 30vh;
             background-color: rgba(255, 255, 255, 0.9);
             margin: 30px 15px 20px 25px;
-            border-radius: 40%;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .img_perfil {
+            width: 30vh;
+            height: 30vh;
+            object-fit: cover;
+        }
+
+        .boas_vindas {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .caixa_dados {
+            margin-left: 5vh;
+            margin-top: 5vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dados_usuario {
+            color: #977653;
+        }
+
+        .dados_usuario_input {
+            color: #977653;
+            background-color: #0001;
+            border-style: none;
         }
     </style>
 </head>
@@ -76,47 +104,62 @@ $query_cadastros = mysqli_query($cone, $buscar_cadastros) or die(mysqli_error($c
     </header>
 
     <main id="corpo">
+        <?php
+        while ($receber_dados = mysqli_fetch_array($query_cadastros)) {
+            $id = $receber_dados['id'];
+            $idade = $receber_dados['idade'];
+            $peso = $receber_dados['peso'];
+            $altura = $receber_dados['altura'];
+            $imagem_perfil = $receber_dados['imagem_perfil'];
+        ?>
+            <div class="card">
+                <div class="boas_vindas">
+                    <label class="avatar">
+                        <img class="img_perfil" src="<?php echo $imagem_perfil; ?>">
+                    </label>
+                    <div class="caixa_dados">
+                        <p> Este e seu nome: <span class="dados_usuario"><?php echo $_SESSION['name']; ?></span> </p>
 
-        <div class="card">
-            <label class="avatar"></label>
+                        <p> Esse e seu sobrenome: <span class="dados_usuario"><?php echo $_SESSION['surname']; ?></span> </p>
 
-            <table class="table">
-            <?php
-            while ($receber_dados = mysqli_fetch_array($query_cadastros)) {
-                $id = $receber_dados['id'];
-                $idade = $receber_dados['idade'];
-                $peso = $receber_dados['peso'];
-                $altura = $receber_dados['altura'];
-                //$link_imagem = $receber_dados['link_imagem'];
-            ?>
+                        <p> O seu email e esse: <span class="dados_usuario"><?php echo $_SESSION['email']; ?></span> </p>
 
-                <tr class="">
-                    <form action="../methods/sistema_perfil_usuario/salvar.php" method="POST" enctype="multipart/form-data">
-                        <!--<td><img src="< ?php echo $link_imagem;?>" width="150"></td>-->
-                        <td class=""><input type="number" name="idade" placeholder="Qual é  sua idade?" value="<?php echo $idade; ?>"></td>
-                        <td class=""><input type="number" name="peso" placeholder="Qual é o seu peso?" value="<?php echo $peso; ?>"></td>
-                        <td class=""><input type="number" name="altura" placeholder="Qual é sua altura?" value="<?php echo $altura; ?>"></td>
-                        <td>
-                            <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="submit" value="Editar">
-                        </td>
+                        <p> Essa e sua senha: <input type="password" class="dados_usuario_input" value="<?php echo $_SESSION['password']; ?>"></input> </p>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <tr class="">
+                        <td class=""><strong>Qual é sua idade?</strong></td>
+                        <td class=""><strong>Qual é o seu peso?</strong></td>
+                        <td class=""><strong>Qual é sua altura em centimentros?</strong></td>
+                        <td></td>
+                    </tr>
+
+
+                    <tr class="">
+                        <form action="../methods/sistema_perfil_usuario/salvar.php" method="POST">
+                            <td class=""><input type="number" name="idade" placeholder="Qual é  sua idade?" value="<?php echo $idade; ?>"></td>
+                            <td class=""><input type="number" name="peso" placeholder="Qual é o seu peso?" value="<?php echo $peso; ?>"></td>
+                            <td class=""><input type="number" name="altura" placeholder="Qual é sua altura?" value="<?php echo $altura; ?>"></td>
+                            <td>
+                                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                <input type="submit" value="Editar">
+                            </td>
+                        </form>
+                    </tr>
+                <?php  }; ?>                
+            </table>
+                    <form action="../methods/sistema_perfil_usuario/salvar_perfil.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="file" name="fileUpload_perfil">
+                        <input type="submit" value="ADICIONAR FOTO DE PERFIL">
                     </form>
-                </tr>
-            <?php }; ?>
-            <!--<tr>
-                <form action="../methods/sistema_perfil_usuario/cadastra.php" method="POST" enctype="multipart/form-data">
-                    <td></td>
-                    <td><input type="number" name="idade" placeholder="Qual é  sua idade?"></td>
-                    <td><input type="number" name="peso" placeholder="Qual é o seu peso?"></td>
-                    <td><input type="number" name="altura" placeholder="Qual é sua altura?"></td>
-                    <td><input type="file" name="fileUpload" ></td>
-                    <td><input type="submit" value="CADASTRAR DADOS"></td>
-                </form>-->
-        </table>
-    </div>
+
+            </div>
 
 
-        </div>
+            </div>
     </main>
 
     <!-- Optional JavaScript -->
