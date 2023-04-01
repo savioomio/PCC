@@ -22,6 +22,16 @@ $query_cadastros = mysqli_query($conx, $buscar_cadastros) or die(mysqli_error($c
     <title>Cadastros de treinos</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        #form_pesquisa{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+            width: 100vh;
+        }
+    </style>
 </head>
 
 <body>
@@ -38,30 +48,27 @@ $query_cadastros = mysqli_query($conx, $buscar_cadastros) or die(mysqli_error($c
                         <a class="nav-link" href="pages/perfil.page.php">Perfil de <?php echo $_SESSION['name']; ?></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <form method="get">
-                            <select name="search">
-                                <option value="">Selecione um dia da semana</option>
-                                <option value="Segunda">Segunda-feira</option>
-                                <option value="Terça">Terça-feira</option>
-                                <option value="Quarta">Quarta-feira</option>
-                                <option value="Quinta">Quinta-feira</option>
-                                <option value="Sexta">Sexta-feira</option>
+                        <form id="form_pesquisa" method="post">
+                            <select name="search_dia">
+                                <option value="">Todos os dias da semana</option>
+                                <option value="Segunda">Segunda</option>
+                                <option value="Terça">Terça</option>
+                                <option value="Quarta">Quarta</option>
+                                <option value="Quinta">Quinta</option>
+                                <option value="Sexta">Sexta</option>
                                 <option value="Sábado">Sábado</option>
                             </select>
-                            <button type="submit">Pesquisar por dia da semana</button>
+                            <div class="form-inline my-2 my-lg-0">
+                                <input type="search" name="search" placeholder="Digite um nome de usuário...">
+                                <button type="submit" class="btn btn-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg>
+                                </button>
+                            </div>
                         </form>
                     </li>
                 </ul>
-                <form method="get">
-                    <div class="form-inline my-2 my-lg-0">
-                        <input class="form-control" type="search" name="search" id="pesquisar" placeholder="Pesquisar">
-                        <button type="submit" class="btn btn-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                </form>
             </div>
         </nav>
     </header>
@@ -69,11 +76,16 @@ $query_cadastros = mysqli_query($conx, $buscar_cadastros) or die(mysqli_error($c
     <div class="con">
         <table class="table">
             <?php
-            if (isset($_GET['search'])) {
-                $search_term = $_GET['search'];
+            if (isset($_POST['search'])) {
+                $search_term = $_POST['search'];
+                $search_dia = $_POST['search_dia'];
 
                 // Preparando a consulta SQL
-                $buscar_cadastros = "SELECT * FROM tabela_de_treinos WHERE name_user LIKE '%$search_term%' or dia_semana LIKE '%$search_term%'";
+                if (!empty($search_dia)) {
+                    $buscar_cadastros = "SELECT * FROM tabela_de_treinos WHERE name_user = '$search_term' and dia_semana = '$search_dia'";
+                } else {
+                    $buscar_cadastros = "SELECT * FROM tabela_de_treinos WHERE name_user LIKE '$search_term%'";
+                }
 
                 // Executando a consulta SQL
                 $query_cadastros = mysqli_query($conx, $buscar_cadastros);
