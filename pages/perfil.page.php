@@ -75,7 +75,7 @@ $query_cadastros = mysqli_query($cone, $buscar_cadastros) or die(mysqli_error($c
 
         .dados_usuario_input {
             color: #977653;
-            background-color: #0001;
+            background-color: transparent;
             border-style: none;
         }
     </style>

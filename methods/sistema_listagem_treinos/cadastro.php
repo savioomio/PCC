@@ -3,6 +3,8 @@
 include "conecxao.php";
 
 $nome_treino = $_POST['nome_treino'];
+$name_user = $_POST['name_user'];
+$dia_semana = $_POST['dia_semana'];
 $series_repeticoes = $_POST['series_repeticoes'];
 $repeticoes = $_POST['repeticoes'];
 
@@ -31,7 +33,7 @@ $repeticoes = $_POST['repeticoes'];
    // echo "eco ".$link_imagem;
 
 
-$buscar_cadastros = "INSERT INTO tabela_de_treinos VALUES ('','$nome_treino','$series_repeticoes','$repeticoes','$link_imagem')";
+$buscar_cadastros = "INSERT INTO tabela_de_treinos VALUES ('', '$name_user', '$dia_semana','$nome_treino', '$series_repeticoes','$repeticoes','$link_imagem')";
 
 $query_cadastros = mysqli_query($conx, $buscar_cadastros) or die(mysqli_error($conx));
 
